@@ -1,0 +1,90 @@
+ void mycat(void){
+     char red_1[10], red_2[10], red_3[10];
+     int i = 7, j = 0, k = 7;
+     int red = 0;
+     int check = 0;
+     FILE *f1, *f2, *f3;
+     char buf_1[512];
+     char buf_2[512];
+     char buf_3[512];
+     //리다이렉션 체크
+   while(1){
+        if(typ[j] = '>'){
+             red = 1;
+             break;
+         }
+         j++;
+     }
+     //리다이렉션 있다면 인자가 1개인지 2개인지 체크
+     if(red == 1){
+         for(k=7; k<j; k++){
+             if(typ[k] == '\0')
+                 check++;
+         }
+     }
+     if(check == 2)
+         red = 2;
+      //리다이렉션 없을 때
+     if(red == 0){
+         for(i=7; i<11; i++){
+             red_1[i-7] = typ[i];
+         }
+         f1 = fopen(red_1, "r");
+         while(fgets(buf_1, 512, f1) != NULL)
+             printf("%s",buf_1);
+         fclose(f1);
+      }
+    //리다이렉션 인자 1개일때
+     if(red == 1){
+         for(i=7; i<11; i++){
+             red_1[i-7] = typ[i];
+         }
+         i=0;
+         for(i; i<4; i++){
+             red_2[i] = typ[j+2];
+             j++;
+         }
+         f1 = fopen(red_1, "r");
+         f2 = fopen(red_2, "a");
+         fgets(buf_1, 512, f1);
+         fputs(buf_1, f2);
+
+
+
+
+         fclose(f1);
+         fclose(f2);
+     }
+     //리다이렉션 인자 2개일때
+     if(red == 2 ){
+         for(i=7; i<11; i++){
+             red_1[i-7] = typ[i];
+         }
+         int k=7;
+         while(typ[k] != '\0')
+             k++;
+         k++;
+         i=0;
+         for(k; k<k+4; k++){
+             red_2[i] = typ[k];
+         }
+         i=0;
+         for(i; i<4; i++){
+             red_3[i] = typ[j+2];
+             j++;
+         }
+         f1 = fopen(red_1, "r");
+         f2 = fopen(red_2, "r");
+         f3 = fopen(red_3, "a");
+         fgets(buf_1, 512, f1);
+         fgets(buf_2, 512, f2);
+         fputs(buf_1, f3);
+         fputs(buf_2, f3);
+         fclose(f1);
+         fclose(f2);
+         fclose(f3);
+
+     }
+
+
+ }
